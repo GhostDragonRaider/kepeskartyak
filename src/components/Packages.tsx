@@ -25,11 +25,6 @@ export function Packages() {
                 <h3 className="package-card__name">{pkg.name}</h3>
                 <p className="package-card__desc">{pkg.description}</p>
                 <p className="package-card__price">{pkg.price}</p>
-                {!pkg.isNeedsPackage && (
-                  <p className="package-card__extra">
-                    + kérhető: 📎 nyakba akasztó
-                  </p>
-                )}
                 {pkg.isNeedsPackage && (
                   <p className="package-card__extra">
                     Nyakba akasztható tartóval
@@ -54,7 +49,6 @@ export function Packages() {
               </div>
             ))}
           </div>
-          <p className="extras-note">Sokan csak ezt kérik majd!</p>
         </ScrollReveal>
       </div>
 

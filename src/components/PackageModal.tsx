@@ -10,10 +10,6 @@ interface PackageModalProps {
 export function PackageModal({ pkg, onClose }: PackageModalProps) {
   if (!pkg) return null
 
-  const extrasNote = pkg.isNeedsPackage
-    ? 'Tartalmazza: kártyák + nyakba akasztható tartó'
-    : '+ kérhető: 📎 nyakba akasztható'
-
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal" onClick={(e) => e.stopPropagation()}>
@@ -25,7 +21,9 @@ export function PackageModal({ pkg, onClose }: PackageModalProps) {
           <strong>Tartalom:</strong> {pkg.contents}
         </div>
         <p className="modal__price">{pkg.price}</p>
-        <p className="modal__note">{extrasNote}</p>
+        {pkg.isNeedsPackage && (
+          <p className="modal__note">Tartalmazza: kártyák + nyakba akasztható tartó</p>
+        )}
         <div className="modal__actions">
           <button
             className="btn btn--primary"
