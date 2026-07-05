@@ -67,7 +67,6 @@ export const packages: Package[] = [
 
 export const extras = [
   { emoji: '📎', name: 'Nyakba akasztó', price: '1 000 – 1 500 Ft' },
-  { emoji: '✂️', name: 'Laminálás + vágás', price: '2 000 – 3 000 Ft' },
 ]
 
 export const packageOptions = [

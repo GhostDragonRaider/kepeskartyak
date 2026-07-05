@@ -2,6 +2,7 @@ import { Header } from './components/Header'
 import { Hero } from './components/Hero'
 import { WhyImportant } from './components/WhyImportant'
 import { Packages } from './components/Packages'
+import { Samples } from './components/Samples'
 import { About } from './components/About'
 import { HowToOrder } from './components/HowToOrder'
 import { OrderForm } from './components/OrderForm'
@@ -20,6 +21,7 @@ export default function App() {
         <WhyImportant />
         <Hero />
         <Packages />
+        <Samples />
         <HowToOrder />
         <OrderForm />
         <Pricing />

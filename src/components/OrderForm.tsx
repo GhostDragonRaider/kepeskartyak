@@ -13,7 +13,6 @@ interface FormData {
 
 const extraOptions = [
   'Nyakba akasztó',
-  'Laminálás + vágás',
 ]
 
 export function OrderForm() {

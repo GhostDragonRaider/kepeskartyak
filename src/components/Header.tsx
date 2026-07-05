@@ -8,6 +8,7 @@ const navItems = [
   { label: 'Főoldal', id: 'hero' },
   { label: 'Rólam', id: 'about' },
   { label: 'Csomagok', id: 'packages' },
+  { label: 'Minták', id: 'mintak' },
   { label: 'Rendelés', id: 'order' },
   { label: 'Árak', id: 'pricing' },
   { label: 'Kapcsolat', id: 'contact' },

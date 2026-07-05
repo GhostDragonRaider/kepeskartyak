@@ -38,7 +38,7 @@ export function Pricing() {
             </ul>
             <div className="pricing-info">
               <p>⏱️ Elkészítési idő: 2–5 nap</p>
-              <p>📦 Átvétel: digitálisan (PDF) vagy postai úton, nyomtatva és laminálva</p>
+              <p>📦 Átvétel: digitálisan (PDF) vagy postai úton, nyomtatva, laminálva és kivágva</p>
             </div>
             <p className="pricing-note">Pontos árat egyeztetés után adok meg.</p>
           </div>
