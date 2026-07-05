@@ -13,45 +13,38 @@ export interface Package {
 
 export const packages: Package[] = [
   {
-    id: 'reggeli',
+    id: 'napi-rutin',
     emoji: '🌅',
-    name: 'Reggeli rutin csomag',
-    description: 'Segít elindítani a napot kiszámíthatóbban és nyugodtabban.',
-    contents: 'felkelés, wc, fogmosás, öltözés, reggeli (5–6 db kártya)',
-    price: '9 990 Ft',
+    name: 'Napi rutin (Prémium)',
+    description: 'A teljes napi rutin egyben, szabálykártyákkal. Különösen ajánlott kezdőknek.',
+    contents:
+      'reggeli és esti rutin, öltözés, étkezés, fogmosás, játék, fürdés, alvás, óvodába/iskolába indulás, egyszerű szabálykártyák (pl. Halkan beszélek, Várok a soromra, Nem bántok másokat, Szépen kérek, Megállok, Figyelek, Elpakolok)',
+    price: '17 990 – 19 990 Ft',
+    bestseller: true,
   },
   {
     id: 'ovodai',
     emoji: '🏫',
-    name: 'Óvodai napirend csomag',
+    name: 'Óvodai csomag',
     description: 'Segít az óvodai helyzetek megértésében és elfogadásában.',
     contents: 'óvodai tevékenységek, átmenetek',
     price: '12 990 Ft',
   },
   {
-    id: 'esti',
-    emoji: '🌙',
-    name: 'Esti rutin csomag',
-    description: 'Megnyugtató lezárása a napnak, segíti az elalvást.',
-    contents: 'fürdés, pizsama, fogmosás, mese, alvás',
+    id: 'iskolai',
+    emoji: '🎒',
+    name: 'Iskolai csomag',
+    description: 'Segít az iskolai helyzetek megértésében és a napirend követésében.',
+    contents: 'iskolai tevékenységek, átmenetek, szünet, hazaindulás',
+    price: '13 990 Ft',
+  },
+  {
+    id: 'erzelem',
+    emoji: '💛',
+    name: 'Érzelemkártyák',
+    description: 'Segít a gyermeknek felismerni és kifejezni az érzéseit.',
+    contents: 'boldog, szomorú, dühös, fáradt, izgatott, nyugodt és további érzelmek',
     price: '9 990 Ft',
-  },
-  {
-    id: 'alap',
-    emoji: '🧠',
-    name: 'Alap szükségletek csomag',
-    description: 'A legfontosabb igények jelzésére, amikor a beszéd nehéz.',
-    contents: 'wc, inni, enni, fáj, segítség',
-    price: '8 990 Ft',
-  },
-  {
-    id: 'teljes',
-    emoji: '⭐',
-    name: 'Teljes nap csomag',
-    description: 'A teljes napi rutin egyben. Különösen ajánlott kezdőknek.',
-    contents: 'reggeltől estig minden benne',
-    price: '17 990 – 19 990 Ft',
-    bestseller: true,
   },
   {
     id: 'szukseglet',
@@ -60,8 +53,15 @@ export const packages: Package[] = [
     description: 'Segíti a gyermek önálló kommunikációját a mindennapokban.',
     contents: 'igen/nem, kérek/nem kérem, fáj/segítség, még/kész + nyakba akasztható tartó',
     price: '10 990 Ft',
-    bestseller: true,
     isNeedsPackage: true,
+  },
+  {
+    id: 'egyedi',
+    emoji: '✨',
+    name: 'Teljesen egyedi csomag',
+    description: 'Teljesen személyre szabott csomag a család egyedi igényei alapján.',
+    contents: 'egyedi kártyák és tartalom egyeztetés után',
+    price: '24 990 – 29 990 Ft',
   },
 ]
 
@@ -72,7 +72,6 @@ export const extras = [
 
 export const packageOptions = [
   ...packages.map((p) => p.name),
-  'Egyedi csomag',
   'Még nem tudom',
 ]
 

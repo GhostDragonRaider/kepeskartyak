@@ -32,15 +32,15 @@ export function Hero() {
           <div className="hero__cards">
             <div className="card-mockup">
               <span className="card-mockup__icon">🌅</span>
-              <span className="card-mockup__label">Reggeli rutin</span>
+              <span className="card-mockup__label">Napi rutin</span>
+            </div>
+            <div className="card-mockup">
+              <span className="card-mockup__icon">🏫</span>
+              <span className="card-mockup__label">Óvodai csomag</span>
             </div>
             <div className="card-mockup">
               <span className="card-mockup__icon">🗣️</span>
               <span className="card-mockup__label">Szükséglet-kifejezés</span>
-            </div>
-            <div className="card-mockup">
-              <span className="card-mockup__icon">🧠</span>
-              <span className="card-mockup__label">Szükségletek</span>
             </div>
           </div>
         </ScrollReveal>

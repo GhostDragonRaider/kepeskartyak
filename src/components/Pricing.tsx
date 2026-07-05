@@ -1,15 +1,15 @@
+import { packages, extras } from '../data/packages'
 import { ScrollReveal } from './ScrollReveal'
 
 const pricingItems = [
-  { label: '🧩 Egyedi kártya', price: '1 200 – 2 000 Ft / db' },
-  { label: '🌅 Reggeli rutin csomag (5–6 db)', price: '9 990 Ft' },
-  { label: '🏫 Óvodai csomag', price: '12 990 Ft' },
-  { label: '🌙 Esti rutin csomag', price: '9 990 Ft' },
-  { label: '🧠 Alap szükségletek', price: '8 990 Ft' },
-  { label: '⭐ Teljes nap csomag', price: '17 990 – 19 990 Ft' },
-  { label: '🗣️ Szükséglet-kifejező csomag', price: '10 990 Ft' },
-  { label: '📎 Nyakba akasztó', price: '1 000 – 1 500 Ft' },
-  { label: '✂️ Laminálás + vágás', price: '2 000 – 3 000 Ft' },
+  ...packages.map((p) => ({
+    label: `${p.emoji} ${p.name}`,
+    price: p.price,
+  })),
+  ...extras.map((e) => ({
+    label: `${e.emoji} ${e.name}`,
+    price: e.price,
+  })),
   { label: '📦 Posta', price: 'külön' },
 ]
 
