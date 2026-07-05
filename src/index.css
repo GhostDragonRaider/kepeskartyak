@@ -8,21 +8,21 @@
 
 :root,
 [data-theme='autism'] {
-  --bg: #f7f7f7;
-  --bg-alt: #cfe8d5;
+  --bg: #f4f8fc;
+  --bg-alt: #dceaf7;
   --bg-card: #ffffff;
-  --bg-section: #fafaf8;
-  --text: #333333;
-  --text-muted: #666666;
-  --accent: #7fbf9e;
-  --accent-hover: #6aad8c;
-  --accent-light: #e8f4ec;
-  --border: #b8d4c8;
-  --highlight: #ffb347;
-  --header-bg: rgba(247, 247, 247, 0.95);
-  --shadow: 0 4px 24px rgba(127, 191, 158, 0.15);
-  --hero-pattern: radial-gradient(circle at 20% 80%, rgba(207, 232, 213, 0.4) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(184, 212, 200, 0.3) 0%, transparent 50%);
+  --bg-section: #eef4fb;
+  --text: #2e4057;
+  --text-muted: #5b7289;
+  --accent: #5b9bd5;
+  --accent-hover: #4a89c4;
+  --accent-light: #e8f2fb;
+  --border: #c5d9ed;
+  --highlight: #89b4d9;
+  --header-bg: rgba(244, 248, 252, 0.96);
+  --shadow: 0 4px 24px rgba(91, 155, 213, 0.14);
+  --hero-pattern: radial-gradient(circle at 20% 80%, rgba(197, 217, 237, 0.55) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(220, 234, 247, 0.65) 0%, transparent 50%);
 }
 
 [data-theme='light'] {
@@ -43,19 +43,19 @@
 }
 
 [data-theme='dark'] {
-  --bg: #1a1a2e;
-  --bg-alt: #16213e;
-  --bg-card: #0f3460;
-  --bg-section: #16213e;
-  --text: #e8e8e8;
-  --text-muted: #a0aec0;
-  --accent: #7fbf9e;
-  --accent-hover: #6aad8c;
-  --accent-light: #1a3a5c;
-  --border: #2d4a6f;
-  --highlight: #ffb347;
-  --header-bg: rgba(26, 26, 46, 0.95);
-  --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --bg: #1a2433;
+  --bg-alt: #243247;
+  --bg-card: #2d4159;
+  --bg-section: #243247;
+  --text: #e8eef5;
+  --text-muted: #a8bdd4;
+  --accent: #6baed6;
+  --accent-hover: #5b9bd5;
+  --accent-light: #2d4159;
+  --border: #3d5673;
+  --highlight: #89b4d9;
+  --header-bg: rgba(26, 36, 51, 0.96);
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
   --hero-pattern: none;
 }
 
@@ -701,7 +701,7 @@ img {
 
 .package-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(127, 191, 158, 0.25);
+  box-shadow: 0 8px 32px rgba(91, 155, 213, 0.22);
 }
 
 .package-card__badge {
