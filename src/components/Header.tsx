@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { scrollTo } from '../hooks/useTheme'
 import { ThemeSwitcher } from './ThemeSwitcher'
 import type { Theme } from '../data/packages'
@@ -33,12 +34,55 @@ export function Header({ theme, onThemeChange }: HeaderProps) {
     return () => window.removeEventListener('resize', onResize)
   }, [])
 
+  useEffect(() => {
+    if (!menuOpen) return
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMenuOpen(false)
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [menuOpen])
+
   const handleNav = (id: string) => {
     scrollTo(id)
     setMenuOpen(false)
   }
 
-  const toggleMenu = () => setMenuOpen((open) => !open)
+  const mobileMenu = menuOpen
+    ? createPortal(
+        <>
+          <button
+            type="button"
+            className="mobile-menu__overlay"
+            aria-label="Menü bezárása"
+            onClick={() => setMenuOpen(false)}
+          />
+          <nav id="mobile-nav" className="mobile-menu" aria-label="Mobil menü">
+            <p className="mobile-menu__title">Menü</p>
+            <ul className="mobile-menu__list">
+              {navItems.map((item) => (
+                <li key={item.id}>
+                  <a
+                    href={`#${item.id}`}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      handleNav(item.id)
+                    }}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <div className="mobile-menu__footer">
+              <p className="mobile-menu__label">Témaváltás</p>
+              <ThemeSwitcher theme={theme} onChange={onThemeChange} />
+            </div>
+          </nav>
+        </>,
+        document.body
+      )
+    : null
 
   return (
     <header className={`header ${menuOpen ? 'header--open' : ''}`}>
@@ -74,7 +118,7 @@ export function Header({ theme, onThemeChange }: HeaderProps) {
           <button
             type="button"
             className={`header__burger ${menuOpen ? 'is-open' : ''}`}
-            onClick={toggleMenu}
+            onClick={() => setMenuOpen((open) => !open)}
             aria-label={menuOpen ? 'Menü bezárása' : 'Menü megnyitása'}
             aria-expanded={menuOpen}
             aria-controls="mobile-nav"
@@ -86,39 +130,7 @@ export function Header({ theme, onThemeChange }: HeaderProps) {
         </div>
       </div>
 
-      {menuOpen && (
-        <>
-          <button
-            type="button"
-            className="header__backdrop"
-            aria-label="Menü bezárása"
-            onClick={() => setMenuOpen(false)}
-          />
-          <nav
-            id="mobile-nav"
-            className="header__nav header__nav--mobile is-open"
-            aria-label="Mobil menü"
-          >
-            <p className="header__nav-title">Menü</p>
-            <ul className="header__nav-list">
-              {navItems.map((item) => (
-                <li key={item.id}>
-                  <a
-                    href={`#${item.id}`}
-                    onClick={(e) => { e.preventDefault(); handleNav(item.id) }}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <div className="header__nav-footer">
-              <p className="header__nav-label">Témaváltás</p>
-              <ThemeSwitcher theme={theme} onChange={onThemeChange} />
-            </div>
-          </nav>
-        </>
-      )}
+      {mobileMenu}
     </header>
   )
 }
