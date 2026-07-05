@@ -16,9 +16,9 @@ export default function App() {
     <>
       <Header theme={theme} onThemeChange={setTheme} />
       <main>
-        <Hero />
-        <WhyImportant />
         <About />
+        <WhyImportant />
+        <Hero />
         <Packages />
         <HowToOrder />
         <OrderForm />
