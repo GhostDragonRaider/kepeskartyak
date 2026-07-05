@@ -38,6 +38,8 @@ export function Header({ theme, onThemeChange }: HeaderProps) {
     setMenuOpen(false)
   }
 
+  const toggleMenu = () => setMenuOpen((open) => !open)
+
   return (
     <header className={`header ${menuOpen ? 'header--open' : ''}`}>
       <div className="container header__bar">
@@ -50,33 +52,7 @@ export function Header({ theme, onThemeChange }: HeaderProps) {
           <span className="header__logo-text">Egyedi képeskártyák</span>
         </a>
 
-        <div className="header__actions">
-          <div className="header__themes-desktop">
-            <ThemeSwitcher theme={theme} onChange={onThemeChange} />
-          </div>
-          <button
-            type="button"
-            className={`header__burger ${menuOpen ? 'is-open' : ''}`}
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label={menuOpen ? 'Menü bezárása' : 'Menü megnyitása'}
-            aria-expanded={menuOpen}
-            aria-controls="main-nav"
-          >
-            <span />
-            <span />
-            <span />
-          </button>
-        </div>
-      </div>
-
-      <nav
-        id="main-nav"
-        className={`header__nav ${menuOpen ? 'is-open' : ''}`}
-        aria-label="Főmenü"
-        aria-hidden={!menuOpen}
-      >
-        <div className="header__nav-panel">
-          <p className="header__nav-title">Menü</p>
+        <nav className="header__nav header__nav--desktop" aria-label="Főmenü">
           <ul className="header__nav-list">
             {navItems.map((item) => (
               <li key={item.id}>
@@ -89,20 +65,60 @@ export function Header({ theme, onThemeChange }: HeaderProps) {
               </li>
             ))}
           </ul>
-          <div className="header__nav-footer">
-            <p className="header__nav-label">Témaváltás</p>
+        </nav>
+
+        <div className="header__actions">
+          <div className="header__themes-desktop">
             <ThemeSwitcher theme={theme} onChange={onThemeChange} />
           </div>
+          <button
+            type="button"
+            className={`header__burger ${menuOpen ? 'is-open' : ''}`}
+            onClick={toggleMenu}
+            aria-label={menuOpen ? 'Menü bezárása' : 'Menü megnyitása'}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
         </div>
-      </nav>
+      </div>
 
-      <button
-        type="button"
-        className="header__backdrop"
-        aria-label="Menü bezárása"
-        tabIndex={menuOpen ? 0 : -1}
-        onClick={() => setMenuOpen(false)}
-      />
+      {menuOpen && (
+        <>
+          <button
+            type="button"
+            className="header__backdrop"
+            aria-label="Menü bezárása"
+            onClick={() => setMenuOpen(false)}
+          />
+          <nav
+            id="mobile-nav"
+            className="header__nav header__nav--mobile is-open"
+            aria-label="Mobil menü"
+          >
+            <p className="header__nav-title">Menü</p>
+            <ul className="header__nav-list">
+              {navItems.map((item) => (
+                <li key={item.id}>
+                  <a
+                    href={`#${item.id}`}
+                    onClick={(e) => { e.preventDefault(); handleNav(item.id) }}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <div className="header__nav-footer">
+              <p className="header__nav-label">Témaváltás</p>
+              <ThemeSwitcher theme={theme} onChange={onThemeChange} />
+            </div>
+          </nav>
+        </>
+      )}
     </header>
   )
 }
