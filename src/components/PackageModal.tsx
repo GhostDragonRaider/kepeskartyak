@@ -10,9 +10,9 @@ interface PackageModalProps {
 export function PackageModal({ pkg, onClose }: PackageModalProps) {
   if (!pkg) return null
 
-  const extrasNote = pkg.isCommunication
-    ? 'Komplett rendszer: kártyák + tépőzáras füzet + nyakba akasztható tartó'
-    : '+ kérhető hozzá: 📒 tépőzáras füzet, 📎 nyakba akasztható tartó'
+  const extrasNote = pkg.isNeedsPackage
+    ? 'Tartalmazza: kártyák + nyakba akasztható tartó'
+    : '+ kérhető: 📎 nyakba akasztható'
 
   return (
     <div className="modal-overlay" onClick={onClose}>

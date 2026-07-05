@@ -18,8 +18,8 @@ export default function App() {
       <main>
         <Hero />
         <WhyImportant />
-        <Packages />
         <About />
+        <Packages />
         <HowToOrder />
         <OrderForm />
         <Pricing />

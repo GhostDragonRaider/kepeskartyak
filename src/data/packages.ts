@@ -8,7 +8,7 @@ export interface Package {
   contents: string
   price: string
   bestseller?: boolean
-  isCommunication?: boolean
+  isNeedsPackage?: boolean
 }
 
 export const packages: Package[] = [
@@ -18,7 +18,7 @@ export const packages: Package[] = [
     name: 'Reggeli rutin csomag',
     description: 'Segít elindítani a napot kiszámíthatóbban és nyugodtabban.',
     contents: 'felkelés, wc, fogmosás, öltözés, reggeli (5–6 db kártya)',
-    price: '5 000 – 7 000 Ft',
+    price: '9 990 Ft',
   },
   {
     id: 'ovodai',
@@ -26,7 +26,7 @@ export const packages: Package[] = [
     name: 'Óvodai napirend csomag',
     description: 'Segít az óvodai helyzetek megértésében és elfogadásában.',
     contents: 'óvodai tevékenységek, átmenetek',
-    price: '6 000 – 8 000 Ft',
+    price: '12 990 Ft',
   },
   {
     id: 'esti',
@@ -34,7 +34,7 @@ export const packages: Package[] = [
     name: 'Esti rutin csomag',
     description: 'Megnyugtató lezárása a napnak, segíti az elalvást.',
     contents: 'fürdés, pizsama, fogmosás, mese, alvás',
-    price: '5 000 – 7 000 Ft',
+    price: '9 990 Ft',
   },
   {
     id: 'alap',
@@ -42,7 +42,7 @@ export const packages: Package[] = [
     name: 'Alap szükségletek csomag',
     description: 'A legfontosabb igények jelzésére, amikor a beszéd nehéz.',
     contents: 'wc, inni, enni, fáj, segítség',
-    price: '4 000 – 6 000 Ft',
+    price: '8 990 Ft',
   },
   {
     id: 'teljes',
@@ -50,26 +50,24 @@ export const packages: Package[] = [
     name: 'Teljes nap csomag',
     description: 'A teljes napi rutin egyben. Különösen ajánlott kezdőknek.',
     contents: 'reggeltől estig minden benne',
-    price: '10 000 – 16 000 Ft',
+    price: '17 990 – 19 990 Ft',
     bestseller: true,
   },
   {
-    id: 'kommunikacios',
+    id: 'szukseglet',
     emoji: '🗣️',
-    name: 'Kommunikációs csomag',
+    name: 'Szükséglet-kifejező csomag',
     description: 'Segíti a gyermek önálló kommunikációját a mindennapokban.',
-    contents: 'igen/nem, kérek/nem kérem, fáj/segítség, még/kész + tépőzáras füzet + nyakba akasztható tartó',
-    price: '6 000 – 10 000 Ft',
+    contents: 'igen/nem, kérek/nem kérem, fáj/segítség, még/kész + nyakba akasztható tartó',
+    price: '10 990 Ft',
     bestseller: true,
-    isCommunication: true,
+    isNeedsPackage: true,
   },
 ]
 
 export const extras = [
-  { emoji: '📒', name: 'Tépőzáras füzet', price: '2 500 – 4 000 Ft' },
   { emoji: '📎', name: 'Nyakba akasztó', price: '1 000 – 1 500 Ft' },
   { emoji: '✂️', name: 'Laminálás + vágás', price: '2 000 – 3 000 Ft' },
-  { emoji: '📦', name: 'Tároló tasak / doboz', price: 'külön egyeztetés' },
 ]
 
 export const packageOptions = [

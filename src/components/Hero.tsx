@@ -36,7 +36,7 @@ export function Hero() {
             </div>
             <div className="card-mockup">
               <span className="card-mockup__icon">🗣️</span>
-              <span className="card-mockup__label">Kommunikáció</span>
+              <span className="card-mockup__label">Szükséglet-kifejezés</span>
             </div>
             <div className="card-mockup">
               <span className="card-mockup__icon">🧠</span>

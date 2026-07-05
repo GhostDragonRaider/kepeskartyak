@@ -1,14 +1,13 @@
 import { ScrollReveal } from './ScrollReveal'
 
 const pricingItems = [
-  { label: '🧩 Egyedi kártya', price: '800 – 1 200 Ft / db' },
-  { label: '🌅 Reggeli rutin csomag (5–6 db)', price: '5 000 – 7 000 Ft' },
-  { label: '🏫 Óvodai csomag', price: '6 000 – 8 000 Ft' },
-  { label: '🌙 Esti rutin csomag', price: '5 000 – 7 000 Ft' },
-  { label: '🧠 Alap szükségletek', price: '4 000 – 6 000 Ft' },
-  { label: '⭐ Teljes nap csomag', price: '10 000 – 16 000 Ft' },
-  { label: '🗣️ Kommunikációs csomag', price: '6 000 – 10 000 Ft' },
-  { label: '📒 Tépőzáras füzet', price: '2 500 – 4 000 Ft' },
+  { label: '🧩 Egyedi kártya', price: '1 200 – 2 000 Ft / db' },
+  { label: '🌅 Reggeli rutin csomag (5–6 db)', price: '9 990 Ft' },
+  { label: '🏫 Óvodai csomag', price: '12 990 Ft' },
+  { label: '🌙 Esti rutin csomag', price: '9 990 Ft' },
+  { label: '🧠 Alap szükségletek', price: '8 990 Ft' },
+  { label: '⭐ Teljes nap csomag', price: '17 990 – 19 990 Ft' },
+  { label: '🗣️ Szükséglet-kifejező csomag', price: '10 990 Ft' },
   { label: '📎 Nyakba akasztó', price: '1 000 – 1 500 Ft' },
   { label: '✂️ Laminálás + vágás', price: '2 000 – 3 000 Ft' },
   { label: '📦 Posta', price: 'külön' },

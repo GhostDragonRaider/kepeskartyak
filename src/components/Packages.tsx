@@ -25,9 +25,14 @@ export function Packages() {
                 <h3 className="package-card__name">{pkg.name}</h3>
                 <p className="package-card__desc">{pkg.description}</p>
                 <p className="package-card__price">{pkg.price}</p>
-                {!pkg.isCommunication && (
+                {!pkg.isNeedsPackage && (
                   <p className="package-card__extra">
-                    + kérhető: 📒 füzet, 📎 nyakba akasztó
+                    + kérhető: 📎 nyakba akasztó
+                  </p>
+                )}
+                {pkg.isNeedsPackage && (
+                  <p className="package-card__extra">
+                    Nyakba akasztható tartóval
                   </p>
                 )}
                 <button className="btn btn--outline" onClick={() => setSelected(pkg)}>

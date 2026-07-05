@@ -12,10 +12,8 @@ interface FormData {
 }
 
 const extraOptions = [
-  'Tépőzáras füzet',
   'Nyakba akasztó',
   'Laminálás + vágás',
-  'Tároló tasak',
 ]
 
 export function OrderForm() {
