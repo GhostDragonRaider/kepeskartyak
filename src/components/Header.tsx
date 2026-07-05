@@ -73,22 +73,26 @@ export function Header({ theme, onThemeChange }: HeaderProps) {
         id="main-nav"
         className={`header__nav ${menuOpen ? 'is-open' : ''}`}
         aria-label="Főmenü"
+        aria-hidden={!menuOpen}
       >
-        <ul className="header__nav-list">
-          {navItems.map((item) => (
-            <li key={item.id}>
-              <a
-                href={`#${item.id}`}
-                onClick={(e) => { e.preventDefault(); handleNav(item.id) }}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <div className="header__nav-footer">
-          <p className="header__nav-label">Témaváltás</p>
-          <ThemeSwitcher theme={theme} onChange={onThemeChange} />
+        <div className="header__nav-panel">
+          <p className="header__nav-title">Menü</p>
+          <ul className="header__nav-list">
+            {navItems.map((item) => (
+              <li key={item.id}>
+                <a
+                  href={`#${item.id}`}
+                  onClick={(e) => { e.preventDefault(); handleNav(item.id) }}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className="header__nav-footer">
+            <p className="header__nav-label">Témaváltás</p>
+            <ThemeSwitcher theme={theme} onChange={onThemeChange} />
+          </div>
         </div>
       </nav>
 
