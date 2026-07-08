@@ -26,6 +26,8 @@ export function OrderForm() {
   })
   const [files, setFiles] = useState<File[]>([])
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
   const [dragOver, setDragOver] = useState(false)
 
   const handleExtra = (extra: string) => {
@@ -51,33 +53,50 @@ export function OrderForm() {
     handleFiles(e.dataTransfer.files)
   }
 
-  const buildMessage = () => {
-    const lines = [
-      'Új rendelés:',
-      `Név: ${form.name}`,
-      `Elérhetőség: ${form.contact}`,
-      `Gyermek kora: ${form.childAge}`,
-      `Csomag: ${form.packageChoice}`,
-      form.extras.length ? `Extrák: ${form.extras.join(', ')}` : '',
-      `Igények: ${form.description}`,
-      files.length ? `Csatolt képek: ${files.length} db` : '',
-    ].filter(Boolean)
-    return encodeURIComponent(lines.join('\n'))
-  }
-
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    setErrorMessage('')
+    setSubmitting(true)
+    try {
+      const payload = new FormData()
+      payload.append('name', form.name)
+      payload.append('contact', form.contact)
+      payload.append('childAge', form.childAge)
+      payload.append('packageChoice', form.packageChoice)
+      payload.append('description', form.description)
+      payload.append('extras', form.extras.join(', '))
+      files.forEach((file) => payload.append('files', file))
+
+      const response = await fetch('/api/order', {
+        method: 'POST',
+        body: payload,
+      })
+
+      const result = await response.json()
+      if (!response.ok || !result.ok) {
+        throw new Error(result.error || 'A rendelés küldése sikertelen volt.')
+      }
+
+      setSubmitted(true)
+    } catch (error) {
+      setErrorMessage(error instanceof Error ? error.message : 'Hiba történt küldés közben.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
-  const openMessenger = () => {
-    window.open(`${MESSENGER_URL}?text=${buildMessage()}`, '_blank')
-  }
-
-  const sendEmail = () => {
-    const subject = encodeURIComponent('Egyedi kártya rendelés')
-    const body = buildMessage()
-    window.location.href = `mailto:?subject=${subject}&body=${body}`
+  const resetForm = () => {
+    setForm({
+      name: '',
+      contact: '',
+      childAge: '',
+      packageChoice: '',
+      description: '',
+      extras: [],
+    })
+    setFiles([])
+    setErrorMessage('')
+    setSubmitted(false)
   }
 
   return (
@@ -106,16 +125,10 @@ export function OrderForm() {
             {submitted ? (
               <div className="order-form">
                 <div className="form-success">
-                  Köszönöm! A rendelés adatai elkészültek.
+                  Köszönöm! A rendelés adatai elküldve emailben.
                 </div>
                 <div className="form-actions">
-                  <button className="btn btn--messenger" onClick={openMessenger}>
-                    💬 Küldés Messengeren
-                  </button>
-                  <button className="btn btn--outline" onClick={sendEmail}>
-                    📧 Küldés emailben
-                  </button>
-                  <button className="btn btn--outline" onClick={() => setSubmitted(false)}>
+                  <button className="btn btn--outline" onClick={resetForm}>
                     Új rendelés
                   </button>
                 </div>
@@ -218,9 +231,19 @@ export function OrderForm() {
                   </div>
                 </div>
 
-                <button type="submit" className="btn btn--primary" style={{ width: '100%' }}>
-                  Rendelés elküldése
+                <button
+                  type="submit"
+                  className="btn btn--primary"
+                  style={{ width: '100%' }}
+                  disabled={submitting}
+                >
+                  {submitting ? 'Küldés folyamatban...' : 'Rendelés elküldése'}
                 </button>
+                {errorMessage && (
+                  <p style={{ color: '#b91c1c', marginTop: '0.75rem', textAlign: 'center' }}>
+                    {errorMessage}
+                  </p>
+                )}
               </form>
             )}
           </ScrollReveal>
