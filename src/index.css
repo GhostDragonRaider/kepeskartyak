@@ -24,10 +24,10 @@
   --hero-pattern: radial-gradient(circle at 20% 80%, rgba(128, 208, 240, 0.38) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(192, 160, 255, 0.28) 0%, transparent 50%);
   --site-gradient:
-    radial-gradient(circle at 12% 18%, rgba(144, 240, 224, 0.62) 0%, rgba(144, 240, 224, 0) 42%),
-    radial-gradient(circle at 86% 12%, rgba(192, 160, 255, 0.55) 0%, rgba(192, 160, 255, 0) 44%),
-    radial-gradient(circle at 78% 88%, rgba(128, 208, 255, 0.62) 0%, rgba(128, 208, 255, 0) 48%),
-    linear-gradient(140deg, #effcff 0%, #dff2ff 42%, #e6ebff 100%);
+    radial-gradient(circle at 20% 20%, rgba(144, 240, 224, 0.9) 0%, rgba(144, 240, 224, 0) 48%),
+    radial-gradient(circle at 80% 18%, rgba(192, 160, 255, 0.78) 0%, rgba(192, 160, 255, 0) 44%),
+    radial-gradient(circle at 70% 78%, rgba(128, 208, 255, 0.9) 0%, rgba(128, 208, 255, 0) 56%),
+    #eff6ff;
   --site-glow:
     radial-gradient(circle at 20% 65%, rgba(128, 240, 224, 0.28) 0%, rgba(128, 240, 224, 0) 52%),
     radial-gradient(circle at 73% 34%, rgba(112, 224, 240, 0.26) 0%, rgba(112, 224, 240, 0) 50%),
@@ -906,29 +906,25 @@ img {
 /* About */
 .about-grid {
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 180px 1fr;
   gap: 3rem;
   align-items: start;
 }
 
 .about-photo {
-  width: 100%;
-  aspect-ratio: 3/4;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(144, 240, 224, 0.9) 0%, rgba(144, 240, 224, 0) 48%),
-    radial-gradient(circle at 80% 18%, rgba(192, 160, 255, 0.78) 0%, rgba(192, 160, 255, 0) 44%),
-    radial-gradient(circle at 70% 78%, rgba(128, 208, 255, 0.9) 0%, rgba(128, 208, 255, 0) 56%),
-    #eff6ff;
-  border-radius: 20px;
+  width: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 6rem;
-  border: 2px solid var(--border);
   position: sticky;
   top: 90px;
-  color: #ffffff;
-  text-shadow: 0 6px 20px rgba(80, 115, 180, 0.45);
+  line-height: 1;
+  background: linear-gradient(140deg, #57d4e7 0%, #7da8ff 45%, #9d79f2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none;
 }
 
 .about-blocks {
@@ -1369,7 +1365,7 @@ img {
   }
 
   .about-grid {
-    grid-template-columns: 240px 1fr;
+    grid-template-columns: 160px 1fr;
     gap: 2rem;
   }
 
@@ -1563,10 +1559,11 @@ img {
   }
 
   .about-photo {
-    max-width: 160px;
+    width: 100%;
+    max-width: none;
     margin: 0 auto;
     position: static;
-    font-size: 3.5rem;
+    font-size: 4rem;
   }
 
   .about-block {
