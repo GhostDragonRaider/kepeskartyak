@@ -8,21 +8,30 @@
 
 :root,
 [data-theme='autism'] {
-  --bg: #f4f8fc;
-  --bg-alt: #dceaf7;
+  --bg: #ecfbff;
+  --bg-alt: rgba(230, 246, 255, 0.82);
   --bg-card: #ffffff;
-  --bg-section: #eef4fb;
-  --text: #2e4057;
-  --text-muted: #5b7289;
-  --accent: #5b9bd5;
-  --accent-hover: #4a89c4;
-  --accent-light: #e8f2fb;
-  --border: #c5d9ed;
-  --highlight: #89b4d9;
-  --header-bg: rgba(244, 248, 252, 0.96);
-  --shadow: 0 4px 24px rgba(91, 155, 213, 0.14);
-  --hero-pattern: radial-gradient(circle at 20% 80%, rgba(197, 217, 237, 0.55) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(220, 234, 247, 0.65) 0%, transparent 50%);
+  --bg-section: rgba(235, 246, 255, 0.9);
+  --text: #1f3858;
+  --text-muted: #48657f;
+  --accent: #4f86d9;
+  --accent-hover: #3f75c5;
+  --accent-light: #ecf4ff;
+  --border: rgba(145, 183, 232, 0.55);
+  --highlight: #9189e8;
+  --header-bg: rgba(239, 250, 255, 0.8);
+  --shadow: 0 8px 32px rgba(79, 134, 217, 0.16);
+  --hero-pattern: radial-gradient(circle at 20% 80%, rgba(128, 208, 240, 0.38) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(192, 160, 255, 0.28) 0%, transparent 50%);
+  --site-gradient:
+    radial-gradient(circle at 12% 18%, rgba(144, 240, 224, 0.62) 0%, rgba(144, 240, 224, 0) 42%),
+    radial-gradient(circle at 86% 12%, rgba(192, 160, 255, 0.55) 0%, rgba(192, 160, 255, 0) 44%),
+    radial-gradient(circle at 78% 88%, rgba(128, 208, 255, 0.62) 0%, rgba(128, 208, 255, 0) 48%),
+    linear-gradient(140deg, #effcff 0%, #dff2ff 42%, #e6ebff 100%);
+  --site-glow:
+    radial-gradient(circle at 20% 65%, rgba(128, 240, 224, 0.28) 0%, rgba(128, 240, 224, 0) 52%),
+    radial-gradient(circle at 73% 34%, rgba(112, 224, 240, 0.26) 0%, rgba(112, 224, 240, 0) 50%),
+    radial-gradient(circle at 58% 80%, rgba(160, 176, 255, 0.24) 0%, rgba(160, 176, 255, 0) 56%);
 }
 
 [data-theme='light'] {
@@ -40,6 +49,8 @@
   --header-bg: rgba(255, 255, 255, 0.95);
   --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
   --hero-pattern: none;
+  --site-gradient: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+  --site-glow: none;
 }
 
 [data-theme='dark'] {
@@ -57,6 +68,8 @@
   --header-bg: rgba(26, 36, 51, 0.96);
   --shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
   --hero-pattern: none;
+  --site-gradient: linear-gradient(180deg, #1a2433 0%, #18212f 100%);
+  --site-glow: none;
 }
 
 html {
@@ -78,9 +91,33 @@ body {
   font-size: 16px;
   line-height: 1.7;
   color: var(--text);
-  background: var(--bg);
-  transition: background 0.3s, color 0.3s;
+  background: var(--site-gradient);
+  background-attachment: fixed;
+  transition: background 0.4s, color 0.3s;
   overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: -12%;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--site-glow);
+  filter: blur(10px);
+  animation: siteGlowShift 18s ease-in-out infinite alternate;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes siteGlowShift {
+  0% {
+    transform: translate3d(-1.5%, -1%, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(1.5%, 1.25%, 0) scale(1.04);
+  }
 }
 
 body.menu-open {
@@ -588,7 +625,33 @@ img {
 .hero__subtitle {
   font-size: clamp(1rem, 2vw, 1.25rem);
   color: var(--text-muted);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero__highlight {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.1rem 1.15rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(7px);
+}
+
+.hero__highlight-title {
+  font-size: 1.12rem;
+  margin-bottom: 0.6rem;
+}
+
+.hero__highlight-list {
+  list-style: none;
+  display: grid;
+  gap: 0.35rem;
+  color: var(--text);
+}
+
+.hero__highlight-list li {
+  font-size: 0.95rem;
 }
 
 .hero__buttons {
@@ -649,36 +712,31 @@ img {
   color: var(--text);
 }
 
-/* Why Important */
-.why-grid {
+/* Why choose us */
+.why-choose-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
 }
 
-.why-card {
-  background: var(--bg-card);
-  border-radius: 20px;
-  padding: 2rem;
-  text-align: center;
-  box-shadow: var(--shadow);
+.why-choose-item {
+  background: rgba(255, 255, 255, 0.75);
   border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem 1.1rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
 }
 
-.why-card__icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+.why-choose-item__icon {
+  line-height: 1.3;
 }
 
-.why-card__title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-}
-
-.why-card__text {
-  color: var(--text-muted);
-  font-size: 0.95rem;
+.why-choose-item p {
+  margin: 0;
+  line-height: 1.5;
 }
 
 .packages-grid {
@@ -856,15 +914,21 @@ img {
 .about-photo {
   width: 100%;
   aspect-ratio: 3/4;
-  background: var(--accent-light);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(144, 240, 224, 0.9) 0%, rgba(144, 240, 224, 0) 48%),
+    radial-gradient(circle at 80% 18%, rgba(192, 160, 255, 0.78) 0%, rgba(192, 160, 255, 0) 44%),
+    radial-gradient(circle at 70% 78%, rgba(128, 208, 255, 0.9) 0%, rgba(128, 208, 255, 0) 56%),
+    #eff6ff;
   border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 5rem;
+  font-size: 6rem;
   border: 2px solid var(--border);
   position: sticky;
   top: 90px;
+  color: #ffffff;
+  text-shadow: 0 6px 20px rgba(80, 115, 180, 0.45);
 }
 
 .about-blocks {
@@ -1300,7 +1364,7 @@ img {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .why-grid {
+  .why-choose-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1432,21 +1496,25 @@ img {
   }
 
   /* Miért fontos */
-  .why-grid {
+  .why-choose-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
 
-  .why-card {
-    padding: 1.25rem;
+  .why-choose-item {
+    padding: 0.95rem 1rem;
   }
 
-  .why-card__icon {
-    font-size: 2rem;
+  .hero__highlight {
+    text-align: left;
   }
 
-  .why-card__title {
-    font-size: 1.1rem;
+  .hero__highlight-title {
+    font-size: 1rem;
+  }
+
+  .hero__highlight-list li {
+    font-size: 0.9rem;
   }
 
   /* Csomagok */

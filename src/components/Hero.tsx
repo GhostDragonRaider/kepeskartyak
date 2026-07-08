@@ -1,5 +1,6 @@
 import { ScrollReveal } from './ScrollReveal'
 import { scrollTo } from '../hooks/useTheme'
+import { heroSpecialPoints } from '../data/content'
 
 export function Hero() {
   return (
@@ -8,13 +9,24 @@ export function Hero() {
         <div>
           <ScrollReveal animation="fade-left" delay={100}>
             <h1 className="hero__title">
-              Segítek, hogy gyermeked könnyebben megértse a világot.
+              Mert a saját képeit minden gyermek könnyebben felismeri.
             </h1>
           </ScrollReveal>
           <ScrollReveal animation="fade-left" delay={300}>
             <p className="hero__subtitle">
-              Egyedi képeskártyák autizmussal élő gyermekeknek, saját fotókkal és személyre szabva.
+              Személyre szabott vizuális kártyák a gyermek saját fotóival és kedvenc tárgyaival – hogy
+              könnyebbé váljon a kommunikáció és a mindennapok.
             </p>
+          </ScrollReveal>
+          <ScrollReveal animation="fade-left" delay={420}>
+            <div className="hero__highlight">
+              <h2 className="hero__highlight-title">🏆 Miért különleges?</h2>
+              <ul className="hero__highlight-list">
+                {heroSpecialPoints.map((point) => (
+                  <li key={point}>✔ {point}</li>
+                ))}
+              </ul>
+            </div>
           </ScrollReveal>
           <ScrollReveal animation="fade-up" delay={500}>
             <div className="hero__buttons">
