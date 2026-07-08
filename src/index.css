@@ -93,6 +93,9 @@ body {
   color: var(--text);
   background: var(--site-gradient);
   background-attachment: fixed;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
   transition: background 0.4s, color 0.3s;
   overflow-x: hidden;
   position: relative;
@@ -100,24 +103,7 @@ body {
 }
 
 body::before {
-  content: '';
-  position: fixed;
-  inset: -12%;
-  z-index: -1;
-  pointer-events: none;
-  background: var(--site-glow);
-  filter: blur(10px);
-  animation: siteGlowShift 18s ease-in-out infinite alternate;
-  transform: translate3d(0, 0, 0);
-}
-
-@keyframes siteGlowShift {
-  0% {
-    transform: translate3d(-1.5%, -1%, 0) scale(1);
-  }
-  100% {
-    transform: translate3d(1.5%, 1.25%, 0) scale(1.04);
-  }
+  content: none;
 }
 
 body.menu-open {
