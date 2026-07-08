@@ -74,4 +74,4 @@ export const packageOptions = [
   'Még nem tudom',
 ]
 
-export const MESSENGER_URL = 'https://m.me/'
+export const MESSENGER_URL = 'https://www.facebook.com/profile.php?id=61588670046384'
