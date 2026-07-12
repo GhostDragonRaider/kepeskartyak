@@ -59,6 +59,23 @@ export const whyImportant = [
   },
 ]
 
+export const heroSpecialPoints = [
+  'Nem rajzokból készül.',
+  'A gyermek saját fotóival.',
+  'A gyermek saját tárgyaival.',
+  'Gyógypedagógiai szemlélettel.',
+  'Egyedileg tervezve.',
+]
+
+export const whyChooseUs = [
+  { icon: '✅', text: 'Saját fotókkal készül' },
+  { icon: '✅', text: 'Kedvenc tárgyakkal is (kulacs, alvós plüss, kedvenc játék stb.)' },
+  { icon: '✅', text: 'Laminált kivitel' },
+  { icon: '✅', text: 'Ajándék kétoldalú tépőzár' },
+  { icon: '✅', text: 'Egyedi tervezés' },
+  { icon: '✅', text: 'Gyógypedagógiai háttér' },
+]
+
 export const orderSteps = [
   { icon: '💬', title: 'Írsz Messengeren', text: 'vagy kitöltöd az űrlapot' },
   { icon: '🤝', title: 'Megbeszéljük', text: 'egyedileg egyeztetünk a gyermek igényeiről' },

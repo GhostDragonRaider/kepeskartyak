@@ -3,7 +3,7 @@ import { ScrollReveal } from './ScrollReveal'
 
 export function About() {
   return (
-    <section id="about" className="section" style={{ background: 'var(--bg-section)' }}>
+    <section id="about" className="section">
       <div className="container">
         <ScrollReveal>
           <h2 className="section-title">Rólam</h2>
@@ -11,7 +11,9 @@ export function About() {
 
         <div className="about-grid">
           <ScrollReveal animation="fade-left">
-            <div className="about-photo" aria-hidden="true">👩‍🏫</div>
+            <div className="about-photo" aria-hidden="true">
+              <span className="about-infinity">∞</span>
+            </div>
           </ScrollReveal>
 
           <div className="about-blocks">

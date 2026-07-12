@@ -3,10 +3,10 @@ import { ScrollReveal } from './ScrollReveal'
 
 export function Samples() {
   return (
-    <section id="mintak" className="section section--alt">
+    <section id="referenciak" className="section section--alt">
       <div className="container">
         <ScrollReveal>
-          <h2 className="section-title">Minták</h2>
+          <h2 className="section-title">Referenciák</h2>
           <p className="samples-intro">
             Így néznek ki a kész kártyák – minden csomag egyedi fotókkal készül,
             a minták csak illusztrációk.

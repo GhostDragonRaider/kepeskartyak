@@ -1,4 +1,4 @@
-import { whyImportant } from '../data/content'
+import { whyChooseUs } from '../data/content'
 import { ScrollReveal } from './ScrollReveal'
 
 export function WhyImportant() {
@@ -6,15 +6,14 @@ export function WhyImportant() {
     <section id="why" className="section section--alt">
       <div className="container">
         <ScrollReveal>
-          <h2 className="section-title">Miért fontos?</h2>
+          <h2 className="section-title">Miért minket válassz?</h2>
         </ScrollReveal>
-        <div className="why-grid">
-          {whyImportant.map((item, i) => (
-            <ScrollReveal key={item.title} animation="fade-up" delay={i * 150}>
-              <div className="why-card">
-                <div className="why-card__icon">{item.icon}</div>
-                <h3 className="why-card__title">{item.title}</h3>
-                <p className="why-card__text">{item.text}</p>
+        <div className="why-choose-grid">
+          {whyChooseUs.map((item, i) => (
+            <ScrollReveal key={item.text} animation="fade-up" delay={i * 90}>
+              <div className="why-choose-item">
+                <span className="why-choose-item__icon" aria-hidden="true">{item.icon}</span>
+                <p>{item.text}</p>
               </div>
             </ScrollReveal>
           ))}
