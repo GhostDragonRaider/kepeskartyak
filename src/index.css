@@ -906,10 +906,8 @@ img {
   position: sticky;
   top: 90px;
   line-height: 1;
-  background: linear-gradient(140deg, #57d4e7 0%, #7da8ff 45%, #9d79f2 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  background: transparent;
+  color: var(--accent);
   text-shadow: none;
 }
 
