@@ -902,13 +902,29 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 6rem;
   position: sticky;
   top: 90px;
+}
+
+.about-infinity {
+  font-size: 6rem;
   line-height: 1;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   background: transparent;
-  color: var(--accent);
-  text-shadow: none;
+  background-image: linear-gradient(
+    90deg,
+    #f5b700 0%,
+    #ef6f6c 20%,
+    #78c679 40%,
+    #4f9de8 60%,
+    #8f63d8 80%,
+    #f5b700 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
 .about-blocks {

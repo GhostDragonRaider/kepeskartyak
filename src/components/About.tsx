@@ -11,7 +11,9 @@ export function About() {
 
         <div className="about-grid">
           <ScrollReveal animation="fade-left">
-            <div className="about-photo" aria-hidden="true">♾️</div>
+            <div className="about-photo" aria-hidden="true">
+              <span className="about-infinity">∞</span>
+            </div>
           </ScrollReveal>
 
           <div className="about-blocks">
